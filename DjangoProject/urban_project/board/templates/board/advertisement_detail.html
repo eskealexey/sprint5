@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<p>
+    <a href="{% url 'board:edit_advertisement' pk=advertisement.pk %}">Редактировать</a>
+</p>
+<h1>{{ advertisement.title }}</h1>
+<p>{{ advertisement.content }}</p>
+{% endblock %}
