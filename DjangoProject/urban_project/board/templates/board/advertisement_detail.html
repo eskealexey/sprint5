@@ -2,8 +2,16 @@
 
 {% block content %}
 <p>
-    <a href="{% url 'board:edit_advertisement' pk=advertisement.pk %}">Редактировать</a>
-</p>
+    {% if request.user == advertisement.author %}
+        <a href="{% url 'board:edit_advertisement' pk=advertisement.pk %}">Редактировать</a>
+
+    {% endif %}
+</p><hr>
 <h1>{{ advertisement.title }}</h1>
 <p>{{ advertisement.content }}</p>
+
+<hr>
+ {% if request.user == advertisement.author %}
+<a href="{% url 'board:delete_advertisement' pk=advertisement.pk %}">Удалить объявление</a>
+ {% endif %}
 {% endblock %}
