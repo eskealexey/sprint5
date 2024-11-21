@@ -9,6 +9,9 @@
 </p><hr>
 <h1>{{ advertisement.title }}</h1>
 <p>{{ advertisement.content }}</p>
+{% if advertisement.img %}
+    <p><img src="{{ advertisement.img.url}}"></p>
+{% endif %}
 
 <hr>
  {% if request.user == advertisement.author %}

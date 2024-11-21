@@ -69,7 +69,7 @@ def add_advertisement(request):
     Add advertisement view
     '''
     if request.method == "POST":
-        form = AdvertisementForm(request.POST)
+        form = AdvertisementForm(request.POST or None, request.FILES or None)
         if form.is_valid():
             advertisement = form.save(commit=False)
             advertisement.author = request.user
@@ -87,7 +87,7 @@ def edit_advertisement(request, pk):
     '''
     advertisement_ = Advertisement.objects.get(pk=pk)
     if request.method == "POST":
-        form = AdvertisementForm(request.POST, instance=advertisement_)
+        form = AdvertisementForm(request.POST or None, request.FILES or None, instance=advertisement_)
         if form.is_valid():
             advertisement = form.save(commit=False)
             advertisement.author = request.user
