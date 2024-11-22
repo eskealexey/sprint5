@@ -11,3 +11,6 @@
 
 Отдельное объявление:<br>
 ![изображение](https://github.com/user-attachments/assets/85c28d16-67f6-4f27-95c9-a8c25ca2c39b)
+
+Структура проекта:<br>
+![изображение](https://github.com/user-attachments/assets/1698079b-6521-447f-a222-887a7cf2c3eb)
