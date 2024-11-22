@@ -6,3 +6,5 @@
 Вид доски объявлений до авторизации:<br>
 ![изображение](https://github.com/user-attachments/assets/40f4948f-b82f-46a3-aa56-d1c5776be5cc)
 
+Вид доски объявлений после авторизации:<br>
+![изображение](https://github.com/user-attachments/assets/3bfa16ff-f812-4333-984d-397fed6fd9a2)
