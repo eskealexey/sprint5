@@ -8,7 +8,8 @@
 <ul>
   {% for advertisement in advertisements %}
     <li>
-      <a href="{% url 'board:advertisement_detail' pk=advertisement.pk %}">{{ advertisement.title }}</a>
+      <a href="{% url 'board:advertisement_detail' pk=advertisement.pk %}">{{ advertisement.title }}</a>&emsp;&emsp;
+      <span style="color: green; size:10px; font-style: italic;">автор: {{ advertisement.author.username}}</span>
     </li>
   {% endfor %}
 </ul>
