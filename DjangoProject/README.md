@@ -4,13 +4,17 @@
 Можно создавать новых пользователей, добавлять новые объявления и просматривать имеющиеся.
 
 Вид доски объявлений до авторизации:<br>
-![изображение](https://github.com/user-attachments/assets/40f4948f-b82f-46a3-aa56-d1c5776be5cc)
+![изображение](https://github.com/user-attachments/assets/72596e24-90db-4a6f-9e4d-e173dbd6431c)
+
 
 Вид доски объявлений после авторизации:<br>
-![изображение](https://github.com/user-attachments/assets/3bfa16ff-f812-4333-984d-397fed6fd9a2)
+![изображение](https://github.com/user-attachments/assets/ec90c6e7-62d9-40fe-af9d-e180744d767c)
+
 
 Отдельное объявление:<br>
-![изображение](https://github.com/user-attachments/assets/85c28d16-67f6-4f27-95c9-a8c25ca2c39b)
+![изображение](https://github.com/user-attachments/assets/23fbadf0-a63b-4524-98ca-a8893fcf9d21)
+
 
 Структура проекта:<br>
-![изображение](https://github.com/user-attachments/assets/1698079b-6521-447f-a222-887a7cf2c3eb)
+![изображение](https://github.com/user-attachments/assets/32fbac3a-c3b1-465c-b89d-fbd4c1dadb07)
+
