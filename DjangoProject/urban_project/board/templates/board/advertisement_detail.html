@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<p>
+    {% if request.user == advertisement.author %}
+        <a href="{% url 'board:edit_advertisement' pk=advertisement.pk %}">Редактировать</a>
+
+    {% endif %}
+</p><hr>
+ <span style="color: green; size: 10px; font-style: italic">  автор: {{ advertisement.author.username }} </span><br>
+<h1>{{ advertisement.title }}</h1>
+<p>{{ advertisement.content }}</p>
+{% if advertisement.img %}
+    <p><img src="{{ advertisement.img.url}}"></p>
+{% endif %}
+<div>
+    <table width="10%">
+        <tr>
+            <td width="50%">Likes: {{ advertisement.likes }}</td>
+            <td width="50%">Dislikes: {{ advertisement.dislikes }}</td>
+        </tr>
+        <tr>
+            <td>
+                <a href="{% url 'board:add_likes' pk=advertisement.pk %}"><button>Like +</button></a>
+            </td>
+            <td>
+                <a href="{% url 'board:add_dislikes' pk=advertisement.pk %}"><button>Dislike +</button></a>
+            </td>
+        </tr>
+    </table>
+</div>
+<hr>
+ {% if request.user == advertisement.author %}
+<a href="{% url 'board:delete_advertisement' pk=advertisement.pk %}">Удалить объявление</a>
+ {% endif %}
+{% endblock %}
