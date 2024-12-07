@@ -4,7 +4,7 @@ Views
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 
-from .models import Advertisement
+from .models import Advertisement, Statistic
 
 
 def logout_view(request):
@@ -79,6 +79,18 @@ def add_advertisement(request):
             advertisement = form.save(commit=False)
             advertisement.author = request.user
             advertisement.save()
+            request.user.save()
+
+            statistic = Statistic.objects.filter(author=request.user)
+            if not statistic:
+                Statistic.objects.create(author=request.user, ad_count=1)
+            else:
+                statistic = Statistic.objects.all().filter(author=request.user)
+                for stat in statistic:
+                    print(stat.ad_count)
+                    stat.ad_count += 1
+                    stat.save()
+
             return redirect('board:advertisement_list')
     else:
         form = AdvertisementForm()
@@ -111,6 +123,17 @@ def delete_advertisement(request, pk):
     if request.method == "POST":
         advertisement = Advertisement.objects.get(pk=pk)
         advertisement.delete()
+
+        statistic = Statistic.objects.filter(author=request.user)
+        if not statistic:
+            pass
+        else:
+            statistic = Statistic.objects.all().filter(author=request.user)
+            for stat in statistic:
+                print(stat.ad_count)
+                stat.ad_count -= 1
+                stat.save()
+
         return redirect('board:advertisement_list')
     return render(request, 'board/advertisement_delete.html',)
 

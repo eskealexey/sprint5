@@ -13,7 +13,7 @@ class AdvertisementForm(forms.ModelForm):
     class Meta:
         """ Meta class for AdvertisementForm"""
         model = Advertisement
-        fields = ['title', 'content', 'author', 'img']
+        fields = ['title', 'content', 'img']
 
 class SignUpForm(UserCreationForm):
     """ Form for creating new user """
