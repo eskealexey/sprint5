@@ -3,6 +3,7 @@ Views
 """
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator
 
 from .models import Advertisement, Statistic
 
@@ -45,7 +46,15 @@ def advertisement_list(request):
     Advertisement list view
     """
     advertisements = Advertisement.objects.all()
-    return render(request, 'board/advertisement_list.html', {'advertisements': advertisements})
+
+    paginator = Paginator(advertisements, 10)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+
+
+
+    return render(request, 'board/advertisement_list.html', {'advertisements': page_obj})
 
 
 def advertisement_detail(request, pk):
@@ -138,8 +147,10 @@ def delete_advertisement(request, pk):
     return render(request, 'board/advertisement_delete.html',)
 
 
-# @login_required
 def add_likes(request, pk):
+    """
+    Добавление лайков
+    """
     like = Advertisement.objects.get(pk=pk)
     if request.method == "GET":
         like.likes += 1
@@ -147,7 +158,12 @@ def add_likes(request, pk):
         return redirect('board:advertisement_detail', pk=pk)
     return render(request, 'board/advertisement_detail.html')
 
+
 def add_dislikes(request, pk):
+    """
+    Добавление дизлайков
+    """
+
     like = Advertisement.objects.get(pk=pk)
     if request.method == "GET":
         like.dislikes += 1

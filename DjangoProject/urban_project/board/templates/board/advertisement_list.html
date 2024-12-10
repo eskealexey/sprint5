@@ -14,4 +14,27 @@
   {% endfor %}
 </ul>
 
+ <hr>
+               <div class="pagination">
+    {% if advertisements.has_other_pages %}
+        {% if advertisements.has_previous %}
+        <a href="?page={{ advertisements.previous_page_number }}&pag={{ pag }}">&lt;&lt;</a>
+        {% endif %}
+
+        {% for i in advertisements.paginator.page_range %}
+            {% if advertisements.number == i %}
+                <b>{{ i }}</b>
+            {% else %}
+                <a href="?page={{ i }}&pag={{ pag }}">{{ i }}</a>
+            {% endif%}
+        {% endfor %}
+
+        {% if advertisements.has_next %}
+           <a href="?page={{ advertisements.next_page_number }}&pag={{ pag }}">&gt;&gt;</a>
+        {% endif %}
+    {% endif %}
+                </div>
+
+
+
 {% endblock %}
